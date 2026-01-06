@@ -1,0 +1,56 @@
+.vercel
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.local
+
+# Environment files (NEVER commit these)
+.env
+.env.local
+.env.*.local
+
+# Test wallet files (SENSITIVE - NEVER commit)
+**/test-wallets.json
+**/*-wallets.json
+**/wallets.json
+
+# Interaction results
+**/interaction-results.json
+**/mass-interaction-results.json
+**/smart-interaction-results.json
+**/active-deposits.json
+**/withdrawal-results.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.pem
+*.key
