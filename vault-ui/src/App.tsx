@@ -9,6 +9,7 @@ import {
   ToastContainer,
   useToast,
   VaultStats,
+  TransactionHistory,
 } from "./components";
 import { useEffect, useCallback, useMemo } from "react";
 import "./App.css";
@@ -248,6 +249,11 @@ function App() {
                   txPending={vault.txPending}
                   onWithdraw={handleWithdraw}
                   onEmergencyWithdraw={handleEmergencyWithdraw}
+                />
+                
+                <TransactionHistory 
+                  address={wallet.address} 
+                  refreshTrigger={vault.deposits.length}
                 />
               </div>
             </div>
