@@ -1,0 +1,134 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4e;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content.danger {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.modal-content.warning {
+  border-color: rgba(251, 146, 60, 0.3);
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.modal-message {
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.modal-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.modal-btn.cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: #a0a0a0;
+}
+
+.modal-btn.cancel:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.modal-btn.confirm {
+  background: #6366f1;
+  color: #fff;
+}
+
+.modal-btn.confirm:hover {
+  background: #5558e3;
+}
+
+.modal-btn.confirm.danger {
+  background: #ef4444;
+}
+
+.modal-btn.confirm.danger:hover {
+  background: #dc2626;
+}
+
+.modal-btn.confirm.warning {
+  background: #fb923c;
+}
+
+.modal-btn.confirm.warning:hover {
+  background: #f97316;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 20px;
+    margin: 16px;
+  }
+  
+  .modal-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .modal-btn {
+    width: 100%;
+    padding: 12px;
+  }
+}

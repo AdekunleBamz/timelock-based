@@ -17,15 +17,7 @@ A decentralized savings vault on **Base Mainnet** that helps users build financi
 
 ## 📜 Smart Contracts
 
-All contracts are deployed and verified on Base Mainnet:
-
-| Contract | Address | Version |
-|----------|---------|---------|
-| TimelockVault | `0x84D6355Bde20f93ac259EF2E852D1d55132231B9` | V3 |
-| VaultTreasury | `0x23f9E461d6Be928d5F2B7d25229396E854310aF3` | V3 |
-| VaultRouter | `0xe6573bafd46701Fe98D7E62961D90200A56312eB` | V2 |
-| LockOptions | `0xF5001102F458595129695a6536Db7c69065209CF` | V2 |
-| USDC | `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913` | - |
+All contracts are deployed and verified on Base Mainnet. Check [BaseScan](https://basescan.org) for verified source code.
 
 ## 🚀 Quick Start
 

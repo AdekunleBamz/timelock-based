@@ -61,11 +61,7 @@ src/
 
 ## Smart Contracts
 
-| Contract | Address |
-|----------|---------|
-| TimelockVault V3 | `0x84D6355Bde20f93ac259EF2E852D1d55132231B9` |
-| VaultTreasury V3 | `0x23f9E461d6Be928d5F2B7d25229396E854310aF3` |
-| USDC | `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913` |
+Contracts are deployed and verified on Base Mainnet. See `src/config/contracts.ts` for addresses.
 
 ## How It Works
 
