@@ -269,7 +269,7 @@ function App() {
           </p>
           <div className="footer-links">
             <a
-              href="https://github.com/AdekunleBamz/ttimelock-based"
+              href="https://github.com/AdekunleBamz/timelock-based"
               target="_blank"
               rel="noopener noreferrer"
             >
