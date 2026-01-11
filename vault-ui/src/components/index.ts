@@ -10,3 +10,4 @@ export { SavingsSummary } from "./SavingsSummary";
 export { VaultStats } from "./VaultStats";
 export { Countdown } from "./Countdown";
 export { ProgressBar } from "./ProgressBar";
+export { TransactionHistory } from "./TransactionHistory";

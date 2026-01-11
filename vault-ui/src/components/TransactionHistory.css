@@ -1,0 +1,101 @@
+.transaction-history {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #2a2a4e;
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.transaction-history h3 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.tx-loading,
+.tx-empty {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 20px;
+}
+
+.tx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tx-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.tx-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tx-icon {
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.tx-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tx-type {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.tx-date {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+}
+
+.tx-amount {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.tx-amount .positive {
+  color: #22c55e;
+}
+
+.tx-amount .neutral {
+  color: #a0a0a0;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .transaction-history {
+    padding: 16px;
+  }
+  
+  .tx-item {
+    padding: 10px;
+  }
+  
+  .tx-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}
