@@ -9,3 +9,4 @@ export { StatsCard } from "./StatsCard";
 export { SavingsSummary } from "./SavingsSummary";
 export { VaultStats } from "./VaultStats";
 export { Countdown } from "./Countdown";
+export { ProgressBar } from "./ProgressBar";
