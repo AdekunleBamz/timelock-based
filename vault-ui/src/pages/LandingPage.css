@@ -1,0 +1,49 @@
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.features-section {
+  padding: var(--spacing-10) var(--spacing-6);
+  background: var(--color-bg-primary);
+}
+
+.section-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin: 0 0 var(--spacing-8) 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-6);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.calculator-section {
+  padding: var(--spacing-10) var(--spacing-6);
+  background: var(--color-bg-secondary);
+  display: flex;
+  justify-content: center;
+}
+
+.calculator-section > * {
+  width: 100%;
+  max-width: 600px;
+}
+
+.faq-section {
+  padding: var(--spacing-10) var(--spacing-6);
+  background: var(--color-bg-primary);
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}

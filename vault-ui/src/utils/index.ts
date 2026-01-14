@@ -11,3 +11,4 @@ export * from './object';
 export * from './typeGuards';
 export * from './async';
 export * from './date';
+export * from './browser';
