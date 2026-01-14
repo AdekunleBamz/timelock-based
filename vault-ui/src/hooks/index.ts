@@ -42,3 +42,4 @@ export { useCountdown, useCountdownInterval } from "./useCountdown";
 // Utility hooks
 export { useDisclosure } from "./useDisclosure";
 export { useList } from "./useList";
+export { useScroll } from "./useScroll";
