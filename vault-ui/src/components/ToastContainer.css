@@ -1,0 +1,127 @@
+.toast-container {
+  position: fixed;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  max-width: 400px;
+  width: calc(100% - var(--spacing-8));
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid;
+  box-shadow: var(--shadow-lg);
+  animation: toast-slide-in 0.3s ease-out;
+}
+
+@keyframes toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.toast-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.toast-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.toast-title {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}
+
+.toast-message {
+  margin: var(--spacing-1) 0 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.toast-close {
+  flex-shrink: 0;
+  padding: var(--spacing-1);
+  background: transparent;
+  border: none;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+/* Toast variants */
+.toast--success {
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.toast--success .toast-icon {
+  background: var(--color-success, #22c55e);
+}
+
+.toast--error {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.toast--error .toast-icon {
+  background: var(--color-error, #ef4444);
+}
+
+.toast--warning {
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
+.toast--warning .toast-icon {
+  background: var(--color-warning, #eab308);
+  color: black;
+}
+
+.toast--info {
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.toast--info .toast-icon {
+  background: var(--color-info, #3b82f6);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .toast-container {
+    top: var(--spacing-2);
+    right: var(--spacing-2);
+    left: var(--spacing-2);
+    width: auto;
+    max-width: none;
+  }
+}
