@@ -1,5 +1,5 @@
 import './SelectInput.css';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useOnClickOutside } from '../hooks/useOnClickOutside';
 
 interface SelectOption {

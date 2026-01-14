@@ -7,9 +7,9 @@ export interface ToastMessage {
   id: string;
   type: ToastType;
   title: string;
-  message?: string;
-  duration?: number;
-  txHash?: string;
+  message?: string | undefined;
+  duration?: number | undefined;
+  txHash?: string | undefined;
 }
 
 interface ToastProps {

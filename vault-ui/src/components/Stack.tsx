@@ -1,4 +1,4 @@
-import type { ReactNode, CSSProperties } from 'react';
+import type { ReactNode, CSSProperties, ElementType } from 'react';
 import './Stack.css';
 
 type Direction = 'horizontal' | 'vertical';
@@ -15,7 +15,7 @@ interface StackProps {
   wrap?: boolean;
   className?: string;
   style?: CSSProperties;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
 }
 
 export function Stack({

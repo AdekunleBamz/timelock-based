@@ -8,6 +8,7 @@ interface AvatarProps {
   alt?: string;
   size?: AvatarSize;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 // Generate a deterministic color from an address
@@ -28,6 +29,7 @@ export function Avatar({
   alt,
   size = 'medium',
   className = '',
+  style,
 }: AvatarProps) {
   const backgroundColor = address ? generateColorFromAddress(address) : 'var(--bg-tertiary)';
   const initials = address ? getInitials(address) : '?';
@@ -35,7 +37,7 @@ export function Avatar({
   return (
     <div
       className={`avatar avatar-${size} ${className}`}
-      style={{ backgroundColor: src ? undefined : backgroundColor }}
+      style={{ backgroundColor: src ? undefined : backgroundColor, ...style }}
       role="img"
       aria-label={alt || address || 'Avatar'}
     >

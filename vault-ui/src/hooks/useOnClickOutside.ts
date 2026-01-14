@@ -4,7 +4,7 @@ import { useEffect, type RefObject } from 'react';
  * Hook that triggers a callback when clicking outside of the element
  */
 export function useOnClickOutside<T extends HTMLElement>(
-  ref: RefObject<T>,
+  ref: RefObject<T | null>,
   handler: (event: MouseEvent | TouchEvent) => void,
   enabled = true
 ): void {

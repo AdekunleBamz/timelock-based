@@ -1,6 +1,6 @@
 import type { Deposit } from '../types';
 import { Card } from './Card';
-import { Badge, StatusBadge } from './Badge';
+import { StatusBadge } from './Badge';
 import { AmountDisplay } from './AmountDisplay';
 import { TimeDisplay, UnlockCountdown } from './TimeDisplay';
 import { ProgressBar } from './ProgressBar';
@@ -20,15 +20,6 @@ function getDepositStatus(deposit: Deposit): 'active' | 'unlocked' | 'withdrawn'
   return 'active';
 }
 
-function calculateProgress(deposit: Deposit): number {
-  const now = Date.now();
-  const start = deposit.startTime.getTime();
-  const end = deposit.unlockTime.getTime();
-  const total = end - start;
-  const elapsed = now - start;
-  return Math.min(100, Math.max(0, (elapsed / total) * 100));
-}
-
 export function DepositCard({
   deposit,
   onWithdraw,
@@ -36,7 +27,6 @@ export function DepositCard({
   isPending,
 }: DepositCardProps) {
   const status = getDepositStatus(deposit);
-  const progress = calculateProgress(deposit);
   const canWithdraw = deposit.isUnlocked && !deposit.withdrawn;
   const canEmergencyWithdraw = !deposit.withdrawn && !deposit.isUnlocked;
 
@@ -52,7 +42,7 @@ export function DepositCard({
 
       {status === 'active' && (
         <div className="deposit-card-progress">
-          <ProgressBar value={progress} />
+          <ProgressBar startTime={deposit.startTime} unlockTime={deposit.unlockTime} isUnlocked={deposit.isUnlocked} />
           <div className="deposit-card-times">
             <TimeDisplay date={deposit.startTime} format="relative" />
             <UnlockCountdown unlockDate={deposit.unlockTime} />

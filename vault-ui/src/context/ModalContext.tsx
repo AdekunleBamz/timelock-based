@@ -21,12 +21,13 @@ export function ModalProvider({ children }: { children: ReactNode }) {
 
   const openModal = useCallback((id: string, component: ReactNode, props?: Record<string, unknown>) => {
     setModals((prev) => {
+      const nextModal: ModalState = props === undefined ? { id, component } : { id, component, props };
       // Replace if already exists, otherwise add
       const exists = prev.some((m) => m.id === id);
       if (exists) {
-        return prev.map((m) => (m.id === id ? { id, component, props } : m));
+        return prev.map((m) => (m.id === id ? nextModal : m));
       }
-      return [...prev, { id, component, props }];
+      return [...prev, nextModal];
     });
   }, []);
 

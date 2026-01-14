@@ -29,12 +29,20 @@ class ApiService {
 
     const url = `${this.baseUrl}${endpoint}`;
     
-    const response = await fetch(url, {
+    const init: RequestInit = {
       method,
       headers: { ...this.defaultHeaders, ...headers },
-      body: body ? JSON.stringify(body) : undefined,
-      signal,
-    });
+    };
+
+    if (body !== undefined) {
+      init.body = JSON.stringify(body);
+    }
+
+    if (signal !== undefined) {
+      init.signal = signal;
+    }
+
+    const response = await fetch(url, init);
 
     if (!response.ok) {
       const error: ApiError = {
@@ -57,19 +65,27 @@ class ApiService {
   }
 
   async get<T>(endpoint: string, signal?: AbortSignal): Promise<T> {
-    return this.request<T>(endpoint, { method: 'GET', signal });
+    const config: RequestConfig = { method: 'GET' };
+    if (signal !== undefined) config.signal = signal;
+    return this.request<T>(endpoint, config);
   }
 
   async post<T>(endpoint: string, body: unknown, signal?: AbortSignal): Promise<T> {
-    return this.request<T>(endpoint, { method: 'POST', body, signal });
+    const config: RequestConfig = { method: 'POST', body };
+    if (signal !== undefined) config.signal = signal;
+    return this.request<T>(endpoint, config);
   }
 
   async put<T>(endpoint: string, body: unknown, signal?: AbortSignal): Promise<T> {
-    return this.request<T>(endpoint, { method: 'PUT', body, signal });
+    const config: RequestConfig = { method: 'PUT', body };
+    if (signal !== undefined) config.signal = signal;
+    return this.request<T>(endpoint, config);
   }
 
   async delete<T>(endpoint: string, signal?: AbortSignal): Promise<T> {
-    return this.request<T>(endpoint, { method: 'DELETE', signal });
+    const config: RequestConfig = { method: 'DELETE' };
+    if (signal !== undefined) config.signal = signal;
+    return this.request<T>(endpoint, config);
   }
 
   setHeader(key: string, value: string): void {

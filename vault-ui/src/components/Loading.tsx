@@ -35,7 +35,11 @@ export function LoadingOverlay({ isVisible, text }: LoadingOverlayProps) {
 
   return (
     <div className="loading-overlay">
-      <Loading size="large" text={text} />
+      {text === undefined ? (
+        <Loading size="large" />
+      ) : (
+        <Loading size="large" text={text} />
+      )}
     </div>
   );
 }

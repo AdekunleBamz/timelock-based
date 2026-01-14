@@ -75,7 +75,7 @@ export function Pagination({
       {showFirstLast && (
         <Button
           variant="ghost"
-          size="sm"
+          size="small"
           onClick={() => onPageChange(1)}
           disabled={!canGoPrev}
           className="pagination-btn"
@@ -86,7 +86,7 @@ export function Pagination({
       )}
       <Button
         variant="ghost"
-        size="sm"
+        size="small"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={!canGoPrev}
         className="pagination-btn"
@@ -116,7 +116,7 @@ export function Pagination({
 
       <Button
         variant="ghost"
-        size="sm"
+        size="small"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={!canGoNext}
         className="pagination-btn"
@@ -127,7 +127,7 @@ export function Pagination({
       {showFirstLast && (
         <Button
           variant="ghost"
-          size="sm"
+          size="small"
           onClick={() => onPageChange(totalPages)}
           disabled={!canGoNext}
           className="pagination-btn"
