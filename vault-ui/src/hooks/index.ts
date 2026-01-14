@@ -22,6 +22,16 @@ export {
 } from "./useMediaQuery";
 export { useOnClickOutside } from "./useOnClickOutside";
 export { useClipboard } from "./useClipboard";
+export { useWindowSize, useScrollPosition, useScrollTo, useIsScrolled, useScrollDirection } from "./useWindow";
 
 // Async hooks
 export { useAsync } from "./useAsync";
+export { useFetch } from "./useFetch";
+
+// Data manipulation hooks
+export { usePagination, useLocalPagination } from "./usePagination";
+export { useSort } from "./useSort";
+export { useFilter, createFilters } from "./useFilter";
+
+// Form hooks
+export { useFormField, validators } from "./useFormField";
