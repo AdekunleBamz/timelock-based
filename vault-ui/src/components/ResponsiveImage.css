@@ -1,0 +1,47 @@
+.responsive-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-lg);
+}
+
+.responsive-image.has-ratio {
+  position: relative;
+  height: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.responsive-image.has-ratio .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image.loaded {
+  opacity: 1;
+}
+
+.image-placeholder,
+.image-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.image-error {
+  background: var(--color-bg-secondary);
+}
