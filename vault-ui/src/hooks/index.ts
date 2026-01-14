@@ -35,6 +35,8 @@ export { useFetch } from "./useFetch";
 export { usePagination, useLocalPagination } from "./usePagination";
 export { useSort } from "./useSort";
 export { useFilter, createFilters } from "./useFilter";
+export { useMap } from "./useMap";
+export { useSet } from "./useSet";
 
 // Form hooks
 export { useFormField, validators } from "./useFormField";
