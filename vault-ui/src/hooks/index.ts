@@ -10,6 +10,7 @@ export { usePrevious, useHasChanged } from "./usePrevious";
 // Timing hooks
 export { useDebounce, useDebouncedCallback } from "./useDebounce";
 export { useInterval, useControllableInterval } from "./useInterval";
+export { useTimeout } from "./useTimeout";
 
 // UI utility hooks
 export { 
@@ -23,6 +24,8 @@ export {
 export { useOnClickOutside } from "./useOnClickOutside";
 export { useClipboard } from "./useClipboard";
 export { useWindowSize, useScrollPosition, useScrollTo, useIsScrolled, useScrollDirection } from "./useWindow";
+export { useKeyPress } from "./useKeyPress";
+export { useEventListener } from "./useEventListener";
 
 // Async hooks
 export { useAsync } from "./useAsync";
