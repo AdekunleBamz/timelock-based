@@ -1,0 +1,49 @@
+.deposit-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.deposit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.deposit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.deposit-card-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deposit-id {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.deposit-card-progress {
+  margin-bottom: 1rem;
+}
+
+.deposit-card-times {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.deposit-card-actions {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.deposit-card-actions .btn {
+  flex: 1;
+}
