@@ -1,0 +1,16 @@
+.confirm-dialog {
+  padding: var(--spacing-2) 0;
+}
+
+.confirm-dialog-message {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-6);
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+}
