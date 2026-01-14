@@ -10,3 +10,4 @@ export * from './string';
 export * from './object';
 export * from './typeGuards';
 export * from './async';
+export * from './date';
