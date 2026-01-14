@@ -1,0 +1,6 @@
+/* Main styles entry point */
+/* Import order matters - tokens first, then utilities, then animations */
+
+@import './tokens.css';
+@import './utilities.css';
+@import './animations.css';
