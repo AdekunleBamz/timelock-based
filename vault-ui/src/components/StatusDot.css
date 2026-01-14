@@ -1,0 +1,78 @@
+.status-dot-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.status-dot {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/* Sizes */
+.status-dot--sm .status-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.status-dot--md .status-dot {
+  width: 8px;
+  height: 8px;
+}
+
+.status-dot--lg .status-dot {
+  width: 12px;
+  height: 12px;
+}
+
+/* Status Colors */
+.status-dot--online {
+  background-color: var(--color-success, #22c55e);
+}
+
+.status-dot--offline {
+  background-color: var(--color-text-muted, #6b7280);
+}
+
+.status-dot--busy {
+  background-color: var(--color-error, #ef4444);
+}
+
+.status-dot--away {
+  background-color: var(--color-warning, #eab308);
+}
+
+.status-dot--pending {
+  background-color: var(--color-info, #3b82f6);
+}
+
+/* Pulse Animation */
+.status-dot--pulse {
+  position: relative;
+}
+
+.status-dot--pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Label */
+.status-dot-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
