@@ -1,0 +1,18 @@
+.external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.external-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.external-link-icon {
+  font-size: 0.75em;
+  opacity: 0.8;
+}
