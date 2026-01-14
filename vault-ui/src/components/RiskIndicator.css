@@ -1,0 +1,40 @@
+.risk-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.risk-indicator-bars {
+  display: flex;
+  gap: 3px;
+}
+
+.risk-bar {
+  width: 4px;
+  height: 16px;
+  background: var(--color-bg-tertiary);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.risk-bar:nth-child(1).active {
+  background: var(--color-success);
+}
+
+.risk-bar:nth-child(2).active {
+  background: var(--color-warning);
+}
+
+.risk-bar:nth-child(3).active {
+  background: var(--color-error);
+}
+
+.risk-indicator-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.risk-score {
+  opacity: 0.7;
+  font-size: var(--font-size-xs);
+}

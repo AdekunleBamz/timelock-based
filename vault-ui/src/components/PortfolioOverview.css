@@ -1,0 +1,84 @@
+.portfolio-overview {
+  padding: var(--spacing-6);
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-primary));
+}
+
+.portfolio-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  padding-bottom: var(--spacing-6);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-6);
+}
+
+.portfolio-main-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.portfolio-main-value {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  line-height: 1.2;
+}
+
+.portfolio-main-change {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-mono);
+}
+
+.portfolio-main-change.positive {
+  color: var(--color-success);
+}
+
+.portfolio-main-change.negative {
+  color: var(--color-error);
+}
+
+.portfolio-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.portfolio-metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.portfolio-metric-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.portfolio-metric-value {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+}
+
+.portfolio-metric-value.available {
+  color: var(--color-success);
+}
+
+@media (max-width: 768px) {
+  .portfolio-main-value {
+    font-size: 2rem;
+  }
+
+  .portfolio-metrics {
+    grid-template-columns: 1fr;
+  }
+}
