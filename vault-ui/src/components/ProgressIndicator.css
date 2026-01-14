@@ -1,0 +1,94 @@
+.progress-ind-container {
+  width: 100%;
+}
+
+.progress-ind-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2);
+}
+
+.progress-ind-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.progress-ind-value {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+}
+
+.progress-ind-track {
+  position: relative;
+  height: 8px;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-ind--sm .progress-ind-track {
+  height: 4px;
+}
+
+.progress-ind--lg .progress-ind-track {
+  height: 12px;
+}
+
+.progress-ind-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease-out;
+}
+
+.progress-ind--default {
+  background: var(--color-primary);
+}
+
+.progress-ind--success {
+  background: var(--color-success);
+}
+
+.progress-ind--warning {
+  background: var(--color-warning);
+}
+
+.progress-ind--danger {
+  background: var(--color-error);
+}
+
+.progress-ind--animate {
+  animation: progress-shimmer 1.5s infinite;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes progress-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.progress-ind-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
