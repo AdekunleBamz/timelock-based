@@ -6,6 +6,8 @@ export { useVault } from "./useVault";
 export { useLocalStorage } from "./useLocalStorage";
 export { useToggle, useDisclosure } from "./useToggle";
 export { usePrevious, useHasChanged } from "./usePrevious";
+export { useUpdateEffect } from "./useUpdateEffect";
+export { useIsMounted } from "./useIsMounted";
 
 // Timing hooks
 export { useDebounce, useDebouncedCallback } from "./useDebounce";
