@@ -23,18 +23,18 @@ export function VaultStats() {
         const usdc = new Contract(CONTRACTS.USDC, ERC20_ABI, provider);
 
         // Get TVL (USDC balance in vault)
-        const vaultBalance = await usdc.balanceOf(CONTRACTS.TIMELOCK_VAULT);
-        const treasuryBalance = await usdc.balanceOf(CONTRACTS.VAULT_TREASURY);
+        const vaultBalance = await usdc['balanceOf'](CONTRACTS.TIMELOCK_VAULT);
+        const treasuryBalance = await usdc['balanceOf'](CONTRACTS.VAULT_TREASURY);
         
         // Get deposit count
-        const nextDepositId = await vault.nextDepositId();
+        const nextDepositId = await vault['nextDepositId']();
         const totalDeposits = Number(nextDepositId) - 1;
 
         // Count unique wallets by scanning deposits
         const uniqueWalletsSet = new Set<string>();
         for (let i = 1; i <= totalDeposits && i <= 200; i++) {
           try {
-            const deposit = await vault.deposits(i);
+            const deposit = await vault['deposits'](i);
             if (deposit.owner !== "0x0000000000000000000000000000000000000000") {
               uniqueWalletsSet.add(deposit.owner.toLowerCase());
             }

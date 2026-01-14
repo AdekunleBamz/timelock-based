@@ -28,8 +28,8 @@ export function useVault(signer: JsonRpcSigner | null, address: string | null) {
 
     try {
       const usdc = new Contract(CONTRACTS.USDC, ERC20_ABI, signer);
-      const balance = await usdc.balanceOf(address);
-      const allow = await usdc.allowance(address, CONTRACTS.VAULT_ROUTER);
+      const balance = await usdc['balanceOf'](address);
+      const allow = await usdc['allowance'](address, CONTRACTS.VAULT_ROUTER);
 
       setUsdcBalance(formatUnits(balance, USDC_DECIMALS));
       setAllowance(allow);
@@ -45,13 +45,13 @@ export function useVault(signer: JsonRpcSigner | null, address: string | null) {
     setIsLoading(true);
     try {
       const vault = new Contract(CONTRACTS.TIMELOCK_VAULT, TIMELOCK_VAULT_ABI, signer);
-      const nextId = await vault.nextDepositId();
+      const nextId = await vault['nextDepositId']();
       const userDeposits: DepositInfo[] = [];
 
       // Scan all deposits (in production, use events for efficiency)
       for (let i = 1; i < Number(nextId); i++) {
         try {
-          const d = await vault.deposits(i);
+          const d = await vault['deposits'](i);
           if (d.owner.toLowerCase() === address.toLowerCase()) {
             const now = new Date();
             const unlockTime = new Date(Number(d.unlockTime) * 1000);
@@ -95,18 +95,18 @@ export function useVault(signer: JsonRpcSigner | null, address: string | null) {
         const amountWei = parseUnits(amountUsdc.toString(), USDC_DECIMALS);
 
         // Check allowance
-        const currentAllowance = await usdc.allowance(await signer.getAddress(), CONTRACTS.VAULT_ROUTER);
+        const currentAllowance = await usdc['allowance'](await signer.getAddress(), CONTRACTS.VAULT_ROUTER);
 
         if (currentAllowance < amountWei) {
           setTxStatus("Approving USDC...");
-          const approveTx = await usdc.approve(CONTRACTS.VAULT_ROUTER, amountWei);
+          const approveTx = await usdc['approve'](CONTRACTS.VAULT_ROUTER, amountWei);
           await approveTx.wait();
           setTxStatus("Approved! Now depositing...");
         }
 
         // Deposit
         setTxStatus("Depositing...");
-        const depositTx = await router.deposit(amountWei, durationSeconds);
+        const depositTx = await router['deposit'](amountWei, durationSeconds);
         const receipt = await depositTx.wait();
 
         setTxStatus("Deposit successful!");
@@ -137,7 +137,7 @@ export function useVault(signer: JsonRpcSigner | null, address: string | null) {
 
       try {
         const vault = new Contract(CONTRACTS.TIMELOCK_VAULT, TIMELOCK_VAULT_ABI, signer);
-        const tx = await vault.withdraw(depositId);
+        const tx = await vault['withdraw'](depositId);
         await tx.wait();
 
         setTxStatus("Withdrawal successful!");
@@ -164,7 +164,7 @@ export function useVault(signer: JsonRpcSigner | null, address: string | null) {
 
       try {
         const vault = new Contract(CONTRACTS.TIMELOCK_VAULT, TIMELOCK_VAULT_ABI, signer);
-        const tx = await vault.emergencyWithdraw(depositId);
+        const tx = await vault['emergencyWithdraw'](depositId);
         await tx.wait();
 
         setTxStatus("Emergency withdrawal successful!");

@@ -34,13 +34,13 @@ export function TransactionHistory({ address, refreshTrigger }: TransactionHisto
         const provider = new JsonRpcProvider(BASE_MAINNET.rpcUrl);
         const vault = new Contract(CONTRACTS.TIMELOCK_VAULT, TIMELOCK_VAULT_ABI, provider);
 
-        const nextId = await vault.nextDepositId();
+        const nextId = await vault['nextDepositId']();
         const txList: Transaction[] = [];
 
         // Scan for user's deposits
         for (let i = 1; i < Number(nextId); i++) {
           try {
-            const deposit = await vault.deposits(i);
+            const deposit = await vault['deposits'](i);
             if (deposit.owner.toLowerCase() === address.toLowerCase()) {
               txList.push({
                 id: i,
