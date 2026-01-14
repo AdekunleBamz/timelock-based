@@ -1,0 +1,87 @@
+.token-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Sizes */
+.token-icon--xs {
+  width: 16px;
+  height: 16px;
+}
+
+.token-icon--sm {
+  width: 24px;
+  height: 24px;
+}
+
+.token-icon--md {
+  width: 32px;
+  height: 32px;
+}
+
+.token-icon--lg {
+  width: 40px;
+  height: 40px;
+}
+
+.token-icon--xl {
+  width: 48px;
+  height: 48px;
+}
+
+/* Fallback */
+.token-icon--fallback {
+  color: white;
+}
+
+.token-icon-letter {
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+.token-icon--xs .token-icon-letter {
+  font-size: 8px;
+}
+
+.token-icon--sm .token-icon-letter {
+  font-size: 10px;
+}
+
+.token-icon--md .token-icon-letter {
+  font-size: 14px;
+}
+
+.token-icon--lg .token-icon-letter {
+  font-size: 16px;
+}
+
+.token-icon--xl .token-icon-letter {
+  font-size: 20px;
+}
+
+/* Token Pair */
+.token-pair {
+  display: inline-flex;
+  position: relative;
+}
+
+.token-pair-primary {
+  z-index: 2;
+}
+
+.token-pair-secondary {
+  margin-left: -8px;
+  z-index: 1;
+  border: 2px solid var(--color-bg-primary);
+}
+
+.token-pair--sm .token-pair-secondary {
+  margin-left: -6px;
+}
+
+.token-pair--lg .token-pair-secondary {
+  margin-left: -10px;
+}
