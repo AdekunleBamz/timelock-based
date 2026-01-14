@@ -1,6 +1,6 @@
-# TimeVault UI
+# Timelock Vault UI
 
-A modern React frontend for the Timelock Savings Vault on Base blockchain.
+A modern, feature-rich React frontend for the Timelock Savings Vault on Base blockchain.
 
 ![React](https://img.shields.io/badge/React-19-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue)
@@ -9,14 +9,26 @@ A modern React frontend for the Timelock Savings Vault on Base blockchain.
 
 ## Features
 
-- 🔒 **Lock USDC** - Deposit and lock USDC for 3, 7, 14, or 30 days
-- 📊 **Real-time Stats** - Live vault statistics and TVL tracking
-- ⏱️ **Countdown Timers** - Visual countdown to unlock time
-- 📈 **Progress Tracking** - See lock progress percentage
-- 📜 **Transaction History** - View recent deposit/withdrawal activity
-- 🔔 **Toast Notifications** - Instant feedback on transactions
-- 📱 **Mobile Responsive** - Works great on all devices
-- 🌙 **Dark Theme** - Easy on the eyes
+### Core Functionality
+- 🔒 **Secure Deposits** - Lock USDC for flexible durations (7-365 days)
+- 💰 **Competitive APY** - Earn up to 15% APY on locked deposits
+- 📊 **Portfolio Management** - Track all deposits and earnings in one place
+- ⚡ **Quick Actions** - Fast deposit and withdrawal flows
+- 📈 **Analytics Dashboard** - Comprehensive performance metrics
+
+### User Experience
+- ⏱️ **Countdown Timers** - Visual countdown to unlock times
+- 🔔 **Toast Notifications** - Real-time transaction feedback
+- 📱 **Mobile Responsive** - Optimized for all devices
+- 🌙 **Dark Mode** - Auto-detect system preference
+- ♿ **Accessible** - WCAG 2.1 compliant components
+
+### Advanced Features
+- 🧮 **APY Calculator** - Project potential earnings
+- 📜 **Transaction History** - Complete activity log with filtering
+- 🎯 **Risk Indicators** - Visual risk assessment
+- ⛽ **Gas Estimation** - Preview transaction costs
+- 📊 **Performance Charts** - Historical value tracking
 
 ## Quick Start
 
