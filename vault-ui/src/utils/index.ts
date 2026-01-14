@@ -8,3 +8,5 @@ export * from './color';
 export * from './array';
 export * from './string';
 export * from './object';
+export * from './typeGuards';
+export * from './async';
