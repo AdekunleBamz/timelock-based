@@ -6,3 +6,5 @@ export * from './url';
 export * from './math';
 export * from './color';
 export * from './array';
+export * from './string';
+export * from './object';
