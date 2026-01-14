@@ -1,0 +1,44 @@
+.address-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.address-text {
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.address-text.hoverable {
+  cursor: default;
+  position: relative;
+}
+
+.address-text.hoverable:hover::after {
+  content: attr(data-full-address);
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 100;
+  margin-bottom: 4px;
+  box-shadow: var(--shadow-md);
+}
+
+.address-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.address-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
