@@ -1,0 +1,117 @@
+.step-indicator {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.step-indicator--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.step-indicator--vertical {
+  flex-direction: column;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  position: relative;
+  flex: 1;
+}
+
+.step-indicator--vertical .step {
+  flex: none;
+  padding-bottom: var(--spacing-4);
+}
+
+.step--clickable {
+  cursor: pointer;
+}
+
+.step-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-bg-tertiary);
+  border: 2px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.step--active .step-circle {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.step--completed .step-circle {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+
+.step-check {
+  font-size: 14px;
+}
+
+.step-number {
+  font-family: var(--font-mono);
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  padding-top: var(--spacing-1);
+}
+
+.step-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.step--active .step-label {
+  color: var(--color-text-primary);
+}
+
+.step--completed .step-label {
+  color: var(--color-text-primary);
+}
+
+.step-description {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* Connector */
+.step-connector {
+  position: absolute;
+  background: var(--color-border);
+  transition: background-color 0.2s;
+}
+
+.step-indicator--horizontal .step-connector {
+  top: 16px;
+  left: calc(32px + var(--spacing-3));
+  right: calc(-1 * var(--spacing-4));
+  height: 2px;
+}
+
+.step-indicator--vertical .step-connector {
+  left: 15px;
+  top: 36px;
+  bottom: 0;
+  width: 2px;
+}
+
+.step-connector--completed {
+  background: var(--color-success);
+}
