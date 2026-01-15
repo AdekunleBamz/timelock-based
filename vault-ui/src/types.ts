@@ -1,17 +1,5 @@
-/**
- * Type definitions for the application
- */
-
-export interface Deposit {
-  id: string;
-  amount: string;
-  lockDuration: number;
-  depositTime: number;
-  unlockTime: number;
-  optionId: number;
-  status: 'locked' | 'unlocked' | 'withdrawn';
-  apy: number;
-}
+// Re-export all types from the centralized types directory
+export * from './types/index';
 
 export interface Transaction {
   id: string;

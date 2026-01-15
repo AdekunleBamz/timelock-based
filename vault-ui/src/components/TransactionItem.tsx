@@ -12,6 +12,7 @@ interface TransactionItemProps {
 const TX_TYPE_CONFIG = {
   deposit: { icon: '📥', label: 'Deposit', variant: 'success' as const },
   withdraw: { icon: '📤', label: 'Withdraw', variant: 'info' as const },
+  claim: { icon: '💰', label: 'Claim', variant: 'success' as const },
   emergency_withdraw: { icon: '⚠️', label: 'Emergency', variant: 'warning' as const },
   approve: { icon: '✅', label: 'Approve', variant: 'default' as const },
 };
@@ -19,6 +20,7 @@ const TX_TYPE_CONFIG = {
 const STATUS_CONFIG = {
   pending: { label: 'Pending', variant: 'warning' as const },
   success: { label: 'Success', variant: 'success' as const },
+  failed: { label: 'Failed', variant: 'error' as const },
   error: { label: 'Failed', variant: 'error' as const },
   cancelled: { label: 'Cancelled', variant: 'default' as const },
 };

@@ -16,7 +16,7 @@ export function DepositWizard({ onComplete, onCancel }: DepositWizardProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [amount, setAmount] = useState('');
   const [duration, setDuration] = useState(0);
-  const [optionId, setOptionId] = useState(1);
+  const [optionId] = useState(1);
 
   const handleNext = () => {
     if (currentStep < STEPS.length - 1) {
@@ -64,7 +64,7 @@ export function DepositWizard({ onComplete, onCancel }: DepositWizardProps) {
             <h3>Enter Deposit Amount</h3>
             <AmountInput
               value={amount}
-              onChange={setAmount}
+              onChange={(e) => setAmount(e.target.value)}
               placeholder="0.00"
               label="Amount to deposit"
             />
@@ -75,10 +75,9 @@ export function DepositWizard({ onComplete, onCancel }: DepositWizardProps) {
           <div className="deposit-wizard-step-content">
             <h3>Select Lock Duration</h3>
             <LockDurationSelector
-              selectedDuration={duration}
-              onSelect={(d, id) => {
+              value={duration}
+              onChange={(d: number) => {
                 setDuration(d);
-                setOptionId(id);
               }}
             />
           </div>
@@ -87,7 +86,7 @@ export function DepositWizard({ onComplete, onCancel }: DepositWizardProps) {
         {currentStep === 2 && (
           <div className="deposit-wizard-step-content">
             <h3>Review Your Deposit</h3>
-            <DepositSummary amount={amount} duration={duration} optionId={optionId} />
+            <DepositSummary amount={parseFloat(amount)} duration={duration} />
           </div>
         )}
       </div>

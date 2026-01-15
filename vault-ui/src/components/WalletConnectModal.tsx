@@ -1,4 +1,4 @@
-import { Modal, ModalFooter } from './Modal';
+import { Modal } from './Modal';
 import { Button } from './Button';
 import './WalletConnectModal.css';
 
@@ -114,7 +114,7 @@ export function NetworkSwitcher({
           </span>
         </div>
       </div>
-      <Button variant="warning" size="small" onClick={onSwitch}>
+      <Button variant="danger" size="small" onClick={onSwitch}>
         Switch to Base
       </Button>
     </div>

@@ -28,7 +28,7 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
 
   return (
     <div className="settings-panel">
-      <Section title="⚙️ Settings" subtitle="Customize your vault experience">
+      <Section title="⚙️ Settings">
         {onClose && (
           <button className="settings-close" onClick={onClose} aria-label="Close settings">
             ✕

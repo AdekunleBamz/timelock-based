@@ -50,7 +50,7 @@ export function RewardsPanel({
           <span>Next Distribution</span>
           <span>{hoursRemaining}h remaining</span>
         </div>
-        <ProgressBar progress={progress} variant="gradient" />
+        <ProgressBar startTime={new Date(Date.now() - progress * 1000)} unlockTime={new Date()} isUnlocked={progress >= 100} />
       </div>
 
       <Button

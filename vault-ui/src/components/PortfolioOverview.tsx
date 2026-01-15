@@ -37,7 +37,7 @@ export function PortfolioOverview({
           <span className="portfolio-metric-label">Active Deposits</span>
           <span className="portfolio-metric-value">
             {activeDeposits}
-            <Badge variant="primary" size="small">Active</Badge>
+            <Badge variant="success" size="small">Active</Badge>
           </span>
         </div>
 

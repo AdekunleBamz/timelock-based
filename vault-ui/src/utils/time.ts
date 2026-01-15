@@ -1,5 +1,3 @@
-import { TIME } from '../constants';
-
 /**
  * Format a duration in seconds to human readable string
  */
@@ -56,12 +54,17 @@ export function getTimeRemaining(targetDate: Date): {
     return { total: 0, days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true };
   }
 
+  const DAY = 86400000;
+  const HOUR = 3600000;
+  const MINUTE = 60000;
+  const SECOND = 1000;
+
   return {
     total,
-    days: Math.floor(total / TIME.DAY),
-    hours: Math.floor((total % TIME.DAY) / TIME.HOUR),
-    minutes: Math.floor((total % TIME.HOUR) / TIME.MINUTE),
-    seconds: Math.floor((total % TIME.MINUTE) / TIME.SECOND),
+    days: Math.floor(total / DAY),
+    hours: Math.floor((total % DAY) / HOUR),
+    minutes: Math.floor((total % HOUR) / MINUTE),
+    seconds: Math.floor((total % MINUTE) / SECOND),
     isExpired: false,
   };
 }
@@ -86,10 +89,15 @@ export function formatDate(date: Date, options?: Intl.DateTimeFormatOptions): st
 export function formatRelativeTime(date: Date): string {
   const now = new Date();
   const diffMs = now.getTime() - date.getTime();
-  const diffSeconds = Math.floor(diffMs / TIME.SECOND);
-  const diffMinutes = Math.floor(diffMs / TIME.MINUTE);
-  const diffHours = Math.floor(diffMs / TIME.HOUR);
-  const diffDays = Math.floor(diffMs / TIME.DAY);
+  const SECOND = 1000;
+  const MINUTE = 60000;
+  const HOUR = 3600000;
+  const DAY = 86400000;
+  
+  const diffSeconds = Math.floor(diffMs / SECOND);
+  const diffMinutes = Math.floor(diffMs / MINUTE);
+  const diffHours = Math.floor(diffMs / HOUR);
+  const diffDays = Math.floor(diffMs / DAY);
 
   if (diffSeconds < 60) return 'Just now';
   if (diffMinutes < 60) return `${diffMinutes}m ago`;

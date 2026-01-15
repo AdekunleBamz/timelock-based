@@ -4,7 +4,7 @@ export { useVault } from "./useVault";
 
 // State management hooks
 export { useLocalStorage } from "./useLocalStorage";
-export { useToggle, useDisclosure } from "./useToggle";
+export { useToggle } from "./useToggle";
 export { usePrevious, useHasChanged } from "./usePrevious";
 export { useUpdateEffect } from "./useUpdateEffect";
 export { useIsMounted } from "./useIsMounted";

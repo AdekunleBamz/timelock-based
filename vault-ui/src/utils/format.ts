@@ -1,12 +1,10 @@
-import { UI_LIMITS } from '../constants';
-
 /**
  * Format a wallet address for display
  */
 export function formatAddress(
   address: string,
-  prefixLength = UI_LIMITS.ADDRESS_PREFIX_LENGTH,
-  suffixLength = UI_LIMITS.ADDRESS_SUFFIX_LENGTH
+  prefixLength = 6,
+  suffixLength = 4
 ): string {
   if (!address || address.length < prefixLength + suffixLength) {
     return address || '';
@@ -44,8 +42,16 @@ export function formatETH(balance: string | number, decimals = 4): string {
 /**
  * Format percentage
  */
-export function formatPercentage(value: number, decimals = 1): string {
+export function formatPercentage(value: number, decimals = 2): string {
   return `${value.toFixed(decimals)}%`;
+}
+
+/**
+ * Format currency (alias for formatUSDC)
+ */
+export function formatCurrency(amount: string | number): string {
+  const num = typeof amount === 'string' ? parseFloat(amount) : amount;
+  return formatNumber(num);
 }
 
 /**

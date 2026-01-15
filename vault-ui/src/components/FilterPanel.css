@@ -78,6 +78,7 @@
   border-radius: 2px;
   outline: none;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 .filter-range-input::-webkit-slider-thumb {

@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { Checkbox } from './Checkbox';
-import { RadioGroup, RadioOption } from './RadioGroup';
+import { RadioGroup } from './RadioGroup';
 import { Button } from './Button';
 import { Divider } from './Divider';
 import './FilterPanel.css';
@@ -72,11 +71,11 @@ export function FilterPanel({
                 <RadioGroup
                   value={(values[filter.id] as string) || ''}
                   onChange={(value) => onChange(filter.id, value)}
-                  options={filter.options.map((opt) => ({
-                    value: opt.value,
-                    label: opt.label,
-                  }))}
-                />
+                >
+                  {filter.options.map((opt) => (
+                    <label key={opt.value}>{opt.label}</label>
+                  ))}
+                </RadioGroup>
               )}
 
               {filter.type === 'range' && (
@@ -90,7 +89,7 @@ export function FilterPanel({
                     className="filter-range-input"
                   />
                   <div className="filter-range-value">
-                    {values[filter.id] || filter.min || 0}
+                    {String(values[filter.id] || filter.min || 0)}
                   </div>
                 </div>
               )}

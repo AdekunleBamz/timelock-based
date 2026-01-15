@@ -34,10 +34,7 @@ export function DashboardPage({
     timestamp: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000).toISOString(),
   }));
 
-  const { filtered } = useFilter(mockDeposits, {
-    searchQuery,
-    searchFields: ['amount', 'status'],
-  });
+  const { items: filtered } = useFilter(mockDeposits);
 
   const pagination = usePagination({
     initialPageSize: 10,
@@ -50,11 +47,11 @@ export function DashboardPage({
   );
 
   const columns = [
-    { key: 'id', label: 'ID', sortable: true },
-    { key: 'amount', label: 'Amount', sortable: true },
-    { key: 'duration', label: 'Duration' },
-    { key: 'status', label: 'Status' },
-    { key: 'timestamp', label: 'Created', sortable: true },
+    { key: 'id', header: 'ID', sortable: true },
+    { key: 'amount', header: 'Amount', sortable: true },
+    { key: 'duration', header: 'Duration' },
+    { key: 'status', header: 'Status' },
+    { key: 'timestamp', header: 'Created', sortable: true },
   ];
 
   const tabs = [
@@ -65,26 +62,29 @@ export function DashboardPage({
 
   return (
     <div className="dashboard-page">
-      <Section title="Vault Dashboard" subtitle="Monitor your locked deposits and earnings">
+      <Section title="Vault Dashboard">
         <Grid columns={3} gap="md">
           <InfoBox
             icon="🔒"
-            label="Total Locked"
-            value={`$${totalLocked}`}
-            variant="primary"
-          />
-          <InfoBox
-            icon="📦"
-            label="Active Deposits"
-            value={activeDeposits.toString()}
+            title="Total Locked"
             variant="info"
-          />
+          >
+            ${totalLocked}
+          </InfoBox>
+          <InfoBox
+            icon="📊"
+            title="Active Deposits"
+            variant="info"
+          >
+            {activeDeposits}
+          </InfoBox>
           <InfoBox
             icon="✅"
-            label="Ready to Withdraw"
-            value={unlockedCount.toString()}
+            title="Ready to Withdraw"
             variant="success"
-          />
+          >
+            {unlockedCount}
+          </InfoBox>
         </Grid>
 
         <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} fullWidth />
@@ -106,6 +106,7 @@ export function DashboardPage({
             <DataTable
               columns={columns}
               data={paginatedData}
+              keyExtractor={(item) => item.id.toString()}
               emptyMessage="No deposits found"
             />
             <Pagination
@@ -119,10 +120,11 @@ export function DashboardPage({
         <TabPanel id="analytics" activeTab={activeTab}>
           <Section title="Analytics">
             <InfoBox
-              label="Coming Soon"
-              value="Advanced analytics and insights"
-              variant="default"
-            />
+              title="Coming Soon"
+              variant="info"
+            >
+              Advanced analytics and insights
+            </InfoBox>
           </Section>
         </TabPanel>
       </Section>

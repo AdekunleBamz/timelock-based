@@ -42,10 +42,10 @@ export function DepositCard({
 
       {status === 'active' && (
         <div className="deposit-card-progress">
-          <ProgressBar startTime={deposit.startTime} unlockTime={deposit.unlockTime} isUnlocked={deposit.isUnlocked} />
+          <ProgressBar startTime={new Date(deposit.startTime)} unlockTime={new Date(deposit.unlockTime)} isUnlocked={deposit.isUnlocked} />
           <div className="deposit-card-times">
-            <TimeDisplay date={deposit.startTime} format="relative" />
-            <UnlockCountdown unlockDate={deposit.unlockTime} />
+            <TimeDisplay date={new Date(deposit.startTime)} format="relative" />
+            <UnlockCountdown unlockDate={new Date(deposit.unlockTime)} />
           </div>
         </div>
       )}
@@ -56,7 +56,7 @@ export function DepositCard({
             <Button
               variant="primary"
               size="small"
-              onClick={() => onWithdraw(deposit.id)}
+              onClick={() => onWithdraw(Number(deposit.id))}
               disabled={isPending}
               isLoading={isPending}
             >
@@ -67,7 +67,7 @@ export function DepositCard({
             <Button
               variant="danger"
               size="small"
-              onClick={() => onEmergencyWithdraw(deposit.id)}
+              onClick={() => onEmergencyWithdraw(Number(deposit.id))}
               disabled={isPending}
             >
               Emergency (-10%)

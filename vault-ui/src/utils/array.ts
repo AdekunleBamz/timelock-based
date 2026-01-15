@@ -66,6 +66,6 @@ export function sum(array: number[]): number {
   return array.reduce((acc, val) => acc + val, 0);
 }
 
-export function average(array: number[]): number {
+export function arrayAverage(array: number[]): number {
   return array.length > 0 ? sum(array) / array.length : 0;
 }

@@ -35,7 +35,7 @@ export function APYCalculator() {
       <div className="calculator-inputs">
         <AmountInput
           value={amount}
-          onChange={setAmount}
+          onChange={(e) => setAmount(e.target.value)}
           label="Deposit Amount (USDC)"
           placeholder="1000"
         />

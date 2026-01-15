@@ -44,6 +44,9 @@ export interface Deposit {
   isUnlocked: boolean;
 }
 
+// Alias for consistency with useVault hook
+export type DepositInfo = Deposit;
+
 /**
  * Deposit status enum
  */
@@ -61,14 +64,19 @@ export interface LockOption {
 /**
  * Transaction status
  */
-export type TransactionStatus = 'pending' | 'success' | 'error' | 'cancelled';
+export type TransactionStatus = 'pending' | 'success' | 'failed' | 'error' | 'cancelled';
+
+/**
+ * Transaction type
+ */
+export type TransactionType = 'deposit' | 'withdraw' | 'claim' | 'emergency_withdraw' | 'approve';
 
 /**
  * Transaction information
  */
 export interface Transaction {
   hash: string;
-  type: 'deposit' | 'withdraw' | 'emergency_withdraw' | 'approve';
+  type: TransactionType;
   amount?: string;
   status: TransactionStatus;
   timestamp: Date;

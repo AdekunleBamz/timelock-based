@@ -1,4 +1,4 @@
-import { formatDate, formatRelativeTime } from '../utils/time';
+import { formatRelativeTime } from '../utils/time';
 import { formatAddress } from '../utils/format';
 import './ActivityFeed.css';
 

@@ -67,7 +67,7 @@ export function WithdrawalFlow({ deposits, onWithdraw, onCancel }: WithdrawalFlo
         </div>
       </div>
 
-      {error && <Alert variant="error" message={error} />}
+      {error && <Alert variant="error">{error}</Alert>}
 
       <div className="withdrawal-flow-list">
         {deposits.map((deposit) => {
@@ -99,7 +99,7 @@ export function WithdrawalFlow({ deposits, onWithdraw, onCancel }: WithdrawalFlo
         })}
       </div>
 
-      {isProcessing && <Loading message="Processing withdrawals..." />}
+      {isProcessing && <Loading />}
 
       <div className="withdrawal-flow-actions">
         <Button variant="secondary" onClick={onCancel} disabled={isProcessing}>
