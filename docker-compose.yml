@@ -1,0 +1,42 @@
+# Docker Compose configuration for development
+version: '3.8'
+
+services:
+  vault-ui:
+    build:
+      context: ./vault-ui
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add backend service
+  # api:
+  #   image: vault-api:latest
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - DATABASE_URL=${DATABASE_URL}
+  #   depends_on:
+  #     - db
+  
+  # Optional: Add database
+  # db:
+  #   image: postgres:15-alpine
+  #   environment:
+  #     - POSTGRES_DB=vault
+  #     - POSTGRES_USER=vault
+  #     - POSTGRES_PASSWORD=${DB_PASSWORD}
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres_data:
