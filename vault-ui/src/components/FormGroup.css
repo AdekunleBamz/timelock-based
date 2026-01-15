@@ -1,0 +1,35 @@
+/**
+ * Form group styles
+ */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group__title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.form-group__description {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.form-group__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
