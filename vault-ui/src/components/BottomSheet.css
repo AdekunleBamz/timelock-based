@@ -1,0 +1,120 @@
+.bottom-sheet-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-secondary);
+  border-radius: 20px 20px 0 0;
+  z-index: 1001;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.bottom-sheet-header {
+  position: relative;
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sheet-handle {
+  width: 40px;
+  height: 4px;
+  background: var(--border-color);
+  border-radius: 2px;
+  margin: 0 auto 12px;
+}
+
+.sheet-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.sheet-close {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.sheet-close:active {
+  transform: translateY(-50%) scale(0.95);
+  background: var(--border-color);
+}
+
+.bottom-sheet-content {
+  padding: 20px 16px;
+  overflow-y: auto;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scrollbar styling for bottom sheet */
+.bottom-sheet-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.bottom-sheet-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.bottom-sheet-content::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+  .bottom-sheet {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    border-radius: 20px;
+    bottom: 20px;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translate(-50%, 100%);
+    }
+    to {
+      transform: translate(-50%, 0);
+    }
+  }
+}
