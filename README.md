@@ -6,14 +6,27 @@ A decentralized savings vault on **Base Mainnet** that helps users build financi
 ![Solidity](https://img.shields.io/badge/Solidity-0.8.20-purple)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF)
 
-## 🌟 Features
+## ✨ Features
 
+### Core Features
 - **Flexible Lock Periods**: 3, 7, 14, or 30 days
 - **Low Minimum**: Start with just 0.1 USDC
 - **Emergency Withdrawal**: 10% penalty for early unlock
 - **Base Network**: Low gas fees, fast transactions
-- **Modern UI**: Built with React 19 + TypeScript
+
+### UI/UX Features
+- **Modern Interface**: Built with React 19 + TypeScript
+- **Dark/Light Mode**: Full theme customization
+- **PWA Support**: Install as a standalone app
+- **Responsive Design**: Works on all devices
+- **Real-time Updates**: Live countdown timers and status updates
+- **Advanced Filtering**: Filter, sort, and group deposits
+- **Data Export**: Export deposits to CSV/JSON
+- **Keyboard Shortcuts**: Power user features
+- **Accessibility**: ARIA labels and keyboard navigation
+- **Performance Optimized**: Fast loading and smooth animations
 
 ## 📜 Smart Contracts
 
