@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# Pre-commit hook for code quality checks
+# Place this file in .git/hooks/pre-commit and make it executable
+
+echo "Running pre-commit checks..."
+
+# Check if required commands are available
+command -v npm >/dev/null 2>&1 || { echo "npm is required but not installed. Aborting."; exit 1; }
+
+# Stash unstaged changes
+STASH_NAME="pre-commit-$(date +%s)"
+git stash save -q --keep-index "$STASH_NAME"
+
+# Define cleanup function
+cleanup() {
+  # Restore stashed changes
+  if git stash list | grep -q "$STASH_NAME"; then
+    git stash pop -q
+  fi
+}
+
+# Set trap to run cleanup on exit
+trap cleanup EXIT
+
+# Navigate to vault-ui directory
+cd vault-ui || exit 1
+
+# Run linter
+echo "1/4 Running ESLint..."
+npm run lint --silent
+if [ $? -ne 0 ]; then
+  echo "❌ Linting failed. Please fix the errors and try again."
+  exit 1
+fi
+echo "✅ Linting passed"
+
+# Run type check
+echo "2/4 Running TypeScript type check..."
+npm run type-check --silent
+if [ $? -ne 0 ]; then
+  echo "❌ Type check failed. Please fix the errors and try again."
+  exit 1
+fi
+echo "✅ Type check passed"
+
+# Run tests
+echo "3/4 Running tests..."
+npm test --silent -- --run
+if [ $? -ne 0 ]; then
+  echo "❌ Tests failed. Please fix the errors and try again."
+  exit 1
+fi
+echo "✅ Tests passed"
+
+# Check for console.log statements
+echo "4/4 Checking for console statements..."
+if git diff --cached --name-only | grep -E '\.(ts|tsx|js|jsx)$' | xargs grep -n "console\.\(log\|debug\)" 2>/dev/null; then
+  echo "⚠️  Warning: Found console statements in your code."
+  echo "Please remove them before committing to production."
+  read -p "Continue anyway? (y/N) " -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    exit 1
+  fi
+fi
+
+echo "✅ All pre-commit checks passed!"
+echo "Proceeding with commit..."
+
+exit 0
