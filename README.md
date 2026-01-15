@@ -50,13 +50,27 @@ cd timelock-based/vault-ui
 # Install dependencies
 npm install
 
+# Copy environment example
+cp .env.example .env
+
 # Start development server
 npm run dev
+
+# Open browser at http://localhost:5173
+```
+
+### Alternative: Quick Start Script
+
+```bash
+# Use the development server script
+cd timelock-based
+node dev.js
 ```
 
 ### Build for Production
 
 ```bash
+cd vault-ui
 npm run build
 npm run preview
 ```
